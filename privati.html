@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORMA - Riparazione e Assistenza per Privati</title>
+    <style>
+        :root {
+            --dark: #0f172a;
+            --card: #1e293b;
+            --accent: #2563eb;
+            --green: #16a34a;
+            --white: #ffffff;
+            --muted: #94a3b8;
+            --border: rgba(255,255,255,0.08);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark);
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--border);
+            background: rgba(15,23,42,0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-logo { font-weight: 900; color: var(--accent); letter-spacing: 2px; font-size: 1.2rem; }
+        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.95rem; }
+        .nav-links a:hover { color: var(--white); }
+        .nav-cta {
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* HERO */
+        .hero {
+            padding: 5rem 2rem 4rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .hero .label {
+            display: inline-block;
+            background: rgba(37,99,235,0.15);
+            border: 1px solid rgba(37,99,235,0.3);
+            color: #60a5fa;
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            line-height: 1.2;
+            margin-bottom: 1.2rem;
+        }
+        .hero h1 span { color: var(--accent); }
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--muted);
+            margin-bottom: 2rem;
+        }
+        .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        .btn-secondary {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid var(--border);
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        /* SEZIONI */
+        section { padding: 4rem 2rem; max-width: 1100px; margin: 0 auto; }
+        .section-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+        }
+        h2 { font-size: 2rem; margin-bottom: 1rem; }
+        .sub { color: var(--muted); font-size: 1.05rem; margin-bottom: 2.5rem; }
+
+        /* GRIGLIA SERVIZI */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+        }
+        .service-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.5rem;
+        }
+        .service-card .icon { font-size: 2rem; margin-bottom: 0.8rem; }
+        .service-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .service-card p { color: var(--muted); font-size: 0.95rem; }
+
+        /* SEZIONE DIFFERENZA */
+        .diff-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .diff-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.8rem;
+        }
+        .diff-card.green { border-color: rgba(22,163,74,0.4); background: rgba(22,163,74,0.07); }
+        .diff-card.red { border-color: rgba(239,68,68,0.3); background: rgba(239,68,68,0.05); }
+        .diff-card h3 { font-size: 1.1rem; margin-bottom: 1rem; }
+        .diff-card ul { list-style: none; padding: 0; }
+        .diff-card ul li { color: var(--muted); padding: 0.4rem 0; font-size: 0.95rem; }
+        .diff-card.green ul li::before { content: "✓  "; color: #4ade80; font-weight: bold; }
+        .diff-card.red ul li::before { content: "✗  "; color: #f87171; font-weight: bold; }
+
+        /* COME FUNZIONA */
+        .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
+        .step {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.8rem;
+            position: relative;
+        }
+        .step-num {
+            font-size: 3rem;
+            font-weight: 900;
+            color: rgba(37,99,235,0.25);
+            line-height: 1;
+            margin-bottom: 0.8rem;
+        }
+        .step h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .step p { color: var(--muted); font-size: 0.95rem; }
+
+        /* ESEMPI REALI */
+        .examples { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 2rem; }
+        .example-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.5rem;
+        }
+        .example-card .problema { color: #f87171; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .example-card .soluzione { color: #4ade80; font-size: 0.85rem; font-weight: 700; margin-top: 0.8rem; margin-bottom: 0.5rem; }
+        .example-card h3 { font-size: 1rem; margin-bottom: 0.3rem; }
+        .example-card p { color: var(--muted); font-size: 0.9rem; }
+
+        /* CTA FINALE */
+        .cta-box {
+            background: linear-gradient(135deg, rgba(37,99,235,0.15), rgba(22,163,74,0.1));
+            border: 1px solid rgba(37,99,235,0.3);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .cta-box h2 { font-size: 2rem; margin-bottom: 1rem; }
+        .cta-box p { color: var(--muted); margin-bottom: 2rem; font-size: 1.05rem; }
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+        /* MOBILE BAR */
+        .mobile-bar {
+            display: none;
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            background: rgba(15,23,42,0.95);
+            border-top: 1px solid var(--border);
+            padding: 0.8rem 1rem;
+            gap: 0.8rem;
+            z-index: 200;
+        }
+        .mobile-bar a { flex: 1; text-align: center; padding: 0.8rem; border-radius: 10px; font-weight: bold; text-decoration: none; }
+        .mobile-bar .m-call { background: var(--accent); color: white; }
+        .mobile-bar .m-wa { background: #16a34a; color: white; }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+            padding-bottom: 5rem;
+        }
+        footer a { color: var(--accent); text-decoration: none; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .grid-3 { grid-template-columns: 1fr; }
+            .diff-grid { grid-template-columns: 1fr; }
+            .steps { grid-template-columns: 1fr; }
+            .examples { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .mobile-bar { display: flex; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="nav-logo">ORMA</div>
+    <div class="nav-links">
+        <a href="#servizi">Servizi</a>
+        <a href="#differenza">Perché noi</a>
+        <a href="#esempi">Casi reali</a>
+        <a href="#contatti">Contatti</a>
+        <a href="negozi.html">Sei un negozio?</a>
+    </div>
+    <a class="nav-cta" href="tel:[NUMERO_TELEFONO]">Chiama ora</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="label">CENTRO ASSISTENZA TECNICA ORMA</div>
+    <h1>Il tuo elettrodomestico non funziona<br>o <span>non si riesce a installare?</span></h1>
+    <p>Veniamo a casa tua. Ripariamo, installiamo e risolviamo anche i casi che altri tecnici hanno lasciato a metà.</p>
+    <div class="hero-buttons">
+        <a class="btn-primary" href="tel:[NUMERO_TELEFONO]">📞 Chiama ora</a>
+        <a class="btn-secondary" href="https://api.whatsapp.com/send?phone=[WHATSAPP_NUMERO]" target="_blank">💬 Scrivici su WhatsApp</a>
+    </div>
+</div>
+
+<!-- SERVIZI -->
+<section id="servizi">
+    <div class="section-label">Cosa facciamo</div>
+    <h2>Interveniamo su tutti i grandi elettrodomestici</h2>
+    <p class="sub">Direttamente a casa tua, senza portare via nulla. Diagnosi, riparazione e installazione in un unico intervento.</p>
+
+    <div class="grid-3">
+        <div class="service-card">
+            <div class="icon">🫧</div>
+            <h3>Lavatrici</h3>
+            <p>Non scarica, non centrifuga, perde acqua, non parte. Interveniamo e risolviamo.</p>
+        </div>
+        <div class="service-card">
+            <div class="icon">🍽️</div>
+            <h3>Lavastoviglie</h3>
+            <p>Non lava, non scarica, errori sul display. Diagnosi e riparazione a domicilio.</p>
+        </div>
+        <div class="service-card">
+            <div class="icon">🌀</div>
+            <h3>Asciugatrici</h3>
+            <p>Non asciuga, si blocca, fa rumore. Troviamo il problema e lo risolviamo.</p>
+        </div>
+        <div class="service-card">
+            <div class="icon">❄️</div>
+            <h3>Frigoriferi</h3>
+            <p>Non raffredda, fa ghiaccio, perde acqua. Riparazione e adattamento incasso.</p>
+        </div>
+        <div class="service-card">
+            <div class="icon">🔥</div>
+            <h3>Forni e Piani Cottura</h3>
+            <p>Non scalda, non si accende, non entra nella nicchia. Risolviamo anche i casi difficili.</p>
+        </div>
+        <div class="service-card">
+            <div class="icon">💨</div>
+            <h3>Cappe e Congelatori</h3>
+            <p>Non aspira, fa rumore, non congela. Intervento rapido a domicilio.</p>
+        </div>
+    </div>
+</section>
+
+<!-- PERCHE NOI -->
+<section id="differenza">
+    <div class="section-label">La nostra differenza</div>
+    <h2>Non siamo semplici riparatori</h2>
+    <p class="sub">Siamo tecnici. La differenza è concreta: dove un riparatore si ferma al guasto, noi andiamo oltre.</p>
+
+    <div class="diff-grid">
+        <div class="diff-card green">
+            <h3>✅ ORMA — Tecnici risolutori</h3>
+            <ul>
+                <li>Ripariamo il guasto</li>
+                <li>Installiamo correttamente</li>
+                <li>Modifichiamo il mobile se serve</li>
+                <li>Adattiamo la nicchia o il vano</li>
+                <li>Finiamo il lavoro, sempre</li>
+                <li>Soluzione estetica inclusa</li>
+            </ul>
+        </div>
+        <div class="diff-card red">
+            <h3>❌ Riparatore / Installatore standard</h3>
+            <ul>
+                <li>Ripara solo il guasto</li>
+                <li>Installa solo se tutto è standard</li>
+                <li>Non tocca mobili o strutture</li>
+                <li>Se non entra, lascia lì</li>
+                <li>Lavoro a metà = problema tuo</li>
+                <li>Estetica non è affar suo</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- COME FUNZIONA -->
+<section>
+    <div class="section-label">Come lavoriamo</div>
+    <h2>Semplice, veloce, senza sorprese</h2>
+    <p class="sub">Nessuna burocrazia. Chiami, veniamo, risolviamo.</p>
+
+    <div class="steps">
+        <div class="step">
+            <div class="step-num">01</div>
+            <h3>Ci contatti</h3>
+            <p>Chiama o scrivi su WhatsApp. Descrivi il problema (se puoi, manda una foto). Ti rispondiamo subito.</p>
+        </div>
+        <div class="step">
+            <div class="step-num">02</div>
+            <h3>Veniamo da te</h3>
+            <p>Interveniamo a domicilio. Portiamo gli strumenti giusti. Diagnosi sul posto, preventivo chiaro prima di iniziare.</p>
+        </div>
+        <div class="step">
+            <div class="step-num">03</div>
+            <h3>Problema risolto</h3>
+            <p>Non andiamo via finché il lavoro non è finito bene. Niente mezze soluzioni, niente "ci torno domani".</p>
+        </div>
+    </div>
+</section>
+
+<!-- ESEMPI REALI -->
+<section id="esempi">
+    <div class="section-label">Casi reali</div>
+    <h2>Problemi che abbiamo già risolto</h2>
+    <p class="sub">Situazioni concrete, non teoria. Questi sono i casi che altri tecnici hanno lasciato aperti.</p>
+
+    <div class="examples">
+        <div class="example-card">
+            <div class="problema">❌ IL PROBLEMA</div>
+            <h3>Frigo incasso da sostituire con frigo libero</h3>
+            <p>Il mobile era troppo alto, il cassetto superiore avrebbe dovuto essere smontato. L'installatore se n'è andato.</p>
+            <div class="soluzione">✅ LA NOSTRA SOLUZIONE</div>
+            <p>Abbiamo rimosso una spalla del mobile, fissato il cassetto superiore con staffa a L, inserito il frigo libero. Risultato: funzionale ed esteticamente perfetto.</p>
+        </div>
+        <div class="example-card">
+            <div class="problema">❌ IL PROBLEMA</div>
+            <h3>Piano cottura che non entrava nella nicchia</h3>
+            <p>Il diametro era leggermente diverso. L'installatore ha detto "non si può fare" e ha lasciato il prodotto sul pavimento.</p>
+            <div class="soluzione">✅ LA NOSTRA SOLUZIONE</div>
+            <p>Abbiamo modificato il piano di appoggio con precisione millimetrica. Il piano cottura è entrato, allineato e funzionante.</p>
+        </div>
+        <div class="example-card">
+            <div class="problema">❌ IL PROBLEMA</div>
+            <h3>Forno sotto piano cottura a gas: il tubo bloccava</h3>
+            <p>Il tubo del gas impediva l'inserimento del forno. Nessun installatore aveva trovato una soluzione.</p>
+            <div class="soluzione">✅ LA NOSTRA SOLUZIONE</div>
+            <p>Abbiamo modificato il percorso del tubo in sicurezza, creando lo spazio necessario. Forno installato e funzionante.</p>
+        </div>
+        <div class="example-card">
+            <div class="problema">❌ IL PROBLEMA</div>
+            <h3>Passaggio da piano cottura a piano induzione</h3>
+            <p>La nicchia era troppo piccola per il nuovo piano induzione. Taglio necessario, nessuno voleva farlo.</p>
+            <div class="soluzione">✅ LA NOSTRA SOLUZIONE</div>
+            <p>Abbiamo allargato la nicchia con precisione, installato il piano induzione e rifinito i bordi. Cucina come nuova.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CTA FINALE -->
+<section id="contatti">
+    <div class="cta-box">
+        <h2>Hai un problema che nessuno ha risolto?</h2>
+        <p>Raccontacelo. Nella maggior parte dei casi troviamo una soluzione.<br>Interveniamo a domicilio, senza portare via nulla.</p>
+        <div class="cta-buttons">
+            <a class="btn-primary" href="tel:[NUMERO_TELEFONO]">📞 Chiama ora: [NUMERO_TELEFONO]</a>
+            <a class="btn-secondary" href="https://api.whatsapp.com/send?phone=[WHATSAPP_NUMERO]" target="_blank">💬 WhatsApp</a>
+        </div>
+        <p style="margin-top:1.5rem; color:#64748b; font-size:0.9rem;">Zona servita: [CITTA_PROVINCE]</p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p><strong>ORMA</strong> — Centro Assistenza Tecnica Elettrodomestici</p>
+    <p style="margin-top:0.5rem;"><a href="index.html">← Torna alla Home</a> &nbsp;|&nbsp; <a href="negozi.html">Area Negozi & Partner</a></p>
+    <p style="margin-top:1rem;">© 2026 ORMA — <a href="#">Privacy Policy</a></p>
+</footer>
+
+<!-- MOBILE BAR -->
+<div class="mobile-bar">
+    <a class="m-call" href="tel:[NUMERO_TELEFONO]">📞 Chiama</a>
+    <a class="m-wa" href="https://api.whatsapp.com/send?phone=[WHATSAPP_NUMERO]" target="_blank">💬 WhatsApp</a>
+</div>
+
+</body>
+</html>
