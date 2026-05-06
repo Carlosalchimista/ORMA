@@ -3,179 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ORMA - Partner Tecnico per Negozi e Imprese</title>
+    <title>ORMA - Partner Tecnico Negozi</title>
     <style>
-        :root {
-            --dark: #0f172a;
-            --card: #1e293b;
-            --accent: #3b82f6; /* Blu professionale */
-            --white: #ffffff;
-            --muted: #94a3b8;
-            --border: rgba(255,255,255,0.08);
-        }
+        :root { --dark: #0f172a; --card: #1e293b; --accent: #3b82f6; --white: #ffffff; --muted: #94a3b8; --border: rgba(255,255,255,0.08); }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--dark);
-            color: var(--white);
-            line-height: 1.6;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            border-bottom: 1px solid var(--border);
-            background: rgba(15,23,42,0.95);
-        }
-        .nav-logo { font-weight: 900; color: var(--accent); letter-spacing: 2px; }
-        .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; margin-left: 1.5rem; }
-
-        .hero-b2b {
-            padding: 6rem 2rem;
-            background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.08), transparent);
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .hero-b2b h1 { font-size: 3rem; line-height: 1.1; margin-bottom: 1.5rem; }
-        .hero-b2b p { font-size: 1.2rem; color: var(--muted); margin-bottom: 2.5rem; }
-
-        section { padding: 4rem 2rem; max-width: 1100px; margin: 0 auto; }
-        .section-label { color: var(--accent); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; margin-bottom: 1rem; }
-
-        .value-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        .value-card {
-            background: var(--card);
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-        }
-        .value-card h3 { margin-bottom: 1rem; color: var(--accent); }
-
-        /* NUOVA PARTNER BOX: GRID CARD */
-        .partner-box {
-            background: rgba(255,255,255,0.03);
-            border-radius: 12px;
-            padding: 2rem;
-            margin-top: 2.5rem;
-            border: 1px solid var(--border);
-        }
-        .partner-box h2 { font-size: 1.6rem; margin-bottom: 1rem; }
-        .partner-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        .partner-item {
-            background: var(--card);
-            border: 1px solid var(--border);
-            padding: 1rem;
-            border-radius: 10px;
-        }
-        .partner-item strong { color: var(--accent); display: block; margin-bottom: 0.5rem; font-size: 1.02rem; }
-        .partner-item p { color: var(--white); opacity: 0.92; line-height: 1.45; font-size: 0.98rem; }
-
-        .cta-b2b {
-            background: var(--accent);
-            color: white;
-            padding: 1rem 1.6rem;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 1rem;
-        }
-
-        footer { text-align: center; padding: 3rem 2rem; color: var(--muted); border-top: 1px solid var(--border); }
-
-        @media (max-width: 900px) {
-            .value-grid { grid-template-columns: 1fr 1fr; }
-            .partner-grid { grid-template-columns: 1fr; }
-            .hero-b2b h1 { font-size: 2rem; }
-        }
-        @media (max-width: 480px) {
-            .value-grid { grid-template-columns: 1fr; }
-            .hero-b2b { padding: 3rem 1rem; }
-            nav { padding: 0.8rem 1rem; }
-        }
+        body { font-family: 'Segoe UI', sans-serif; background-color: var(--dark); color: var(--white); line-height: 1.6; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; border-bottom: 1px solid var(--border); }
+        .hero { padding: 5rem 2rem; text-align: center; max-width: 900px; margin: 0 auto; }
+        section { padding: 3rem 1rem; max-width: 1100px; margin: 0 auto; }
+        .partner-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin-top: 2rem; }
+        .partner-item { background: var(--card); border: 1px solid var(--border); padding: 1.5rem; border-radius: 12px; }
+        .partner-item strong { color: var(--accent); display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+        .cta-b2b { background: var(--accent); color: white; padding: 1.2rem 2rem; border-radius: 10px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 2rem; }
+        footer { text-align: center; padding: 3rem; color: var(--muted); border-top: 1px solid var(--border); }
     </style>
 </head>
 <body>
-
-<nav>
-    <div class="nav-logo">ORMA <span style="font-size: 0.7rem; color: var(--muted); vertical-align: middle;">PARTNER</span></div>
-    <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="privati.html">Area Privati</a>
-    </div>
-</nav>
-
-<div class="hero-b2b">
-    <div class="section-label">Soluzioni per Store & Retail</div>
-    <h1>Il Partner Tecnico che salva le tue vendite "difficili"</h1>
-    <p>Molte vendite saltano perché l'installatore standard non può fare modifiche. Noi interveniamo dove gli altri si fermano, permettendoti di consegnare il prodotto e soddisfare il cliente.</p>
+<nav><div class="nav-logo">ORMA PARTNER</div><a href="index.html" style="color:var(--white); text-decoration:none;">Home</a></nav>
+<div class="hero">
+    <h1>Il Partner che salva le tue vendite "impossibili"</h1>
+    <p>Riduci i resi e soddisfa i clienti con installazioni e modifiche professionali.</p>
 </div>
-
 <section>
-    <div class="value-grid">
-        <div class="value-card">
-            <h3>Installazioni Premium</h3>
-            <p>Gestiamo incassi complessi, allineamenti millimetrici e rifiniture estetiche post-montaggio.</p>
-        </div>
-        <div class="value-card">
-            <h3>Soluzioni su Misura</h3>
-            <p>Modifiche mobili, adattamento nicchie e vani. Trasformiamo un "non si può" in un lavoro finito.</p>
-        </div>
-        <div class="value-card">
-            <h3>Assistenza Post-Vendita</h3>
-            <p>Riaffiliamo il cliente al tuo store offrendo un tecnico di riparazione pronto a intervenire a domicilio.</p>
-        </div>
+    <div class="partner-grid">
+        <div class="partner-item"><strong>Zero Resi</strong><p>Se il cliente ha comprato da te, noi troviamo il modo di montarlo, evitando il reso del prodotto.</p></div>
+        <div class="partner-item"><strong>Gestione Stress-Free</strong><p>Pensiamo noi a sopralluoghi e modifiche ai mobili. Tu vendi, noi risolviamo.</p></div>
+        <div class="partner-item"><strong>Tecnici All-in-One</strong><p>Competenze di riparazione, installazione e falegnameria in un unico team.</p></div>
     </div>
-
-    <div class="partner-box">
-        <h2>Perché scegliere ORMA come Partner?</h2>
-
-        <div class="partner-grid">
-            <div class="partner-item">
-                <strong>Zero Resi</strong>
-                <p>Riduciamo drasticamente i resi dovuti a "impossibilità di installazione". Se il cliente ha comprato da te, noi troviamo il modo di montarlo.</p>
-            </div>
-
-            <div class="partner-item">
-                <strong>Competenza Multimarca</strong>
-                <p>Conosciamo le specifiche tecniche dei grandi brand (Expert, Mediaworld, ecc.) e dei produttori: interveniamo senza incertezze.</p>
-            </div>
-
-            <div class="partner-item">
-                <strong>Gestione Cliente "Stress-Free"</strong>
-                <p>Parliamo direttamente con il cliente, effettuiamo sopralluoghi e risolviamo le problematiche estetiche. Il negozio non deve preoccuparsi di nulla.</p>
-            </div>
-
-            <div class="partner-item">
-                <strong>Tecnici All-in-One</strong>
-                <p>Uniamo competenze da installatore, tecnico riparatore e falegname per completare consegne complesse con rifiniture estetiche.</p>
-            </div>
-        </div>
-
-        <div style="text-align: center; margin-top: 1.5rem;">
-            <a href="tel:[NUMERO_TELEFONO]" class="cta-b2b">Contatto Business Diretto</a>
-            <p style="margin-top: 1rem; color: var(--muted); font-style: italic;">Spiegaci le tue esigenze, organizzeremo un incontro tecnico.</p>
-        </div>
-    </div>
+    <div style="text-align:center;"><a href="tel:393391684009" class="cta-b2b">Contatto Business: 339 1684009</a></div>
 </section>
-
-<footer>
-    <p><strong>ORMA DIVISIONE TECNICA</strong><br>Sede operativa: [CITTA_PROVINCE]</p>
-    <p style="margin-top: 1rem;">© 2026 ORMA — Tutti i diritti riservati</p>
-</footer>
-
+<footer><p>ORMA DIVISIONE TECNICA - Operativi a: Province di Novara e Varese (Borgomanero, Gallarate e limitrofi)</p></footer>
 </body>
 </html>
