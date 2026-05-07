@@ -3,122 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ORMA - Scegli il tuo servizio</title>
+    <title>ORMA - Soluzioni Tecniche Elettrodomestici</title>
     <style>
-        :root {
-            --dark: #0f172a;
-            --accent: #2563eb;
-            --white: #ffffff;
-            --muted: #94a3b8;
-            --border: rgba(255,255,255,0.1);
-        }
+        :root { --dark: #0f172a; --accent: #2563eb; --white: #ffffff; --muted: #94a3b8; --border: rgba(255,255,255,0.1); }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
-            color: var(--white);
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 20px;
-        }
-        .logo {
-            font-size: 3.5rem;
-            font-weight: 900;
-            letter-spacing: 5px;
-            margin-bottom: 0.5rem;
-            color: var(--white);
-        }
-        .tagline {
-            color: var(--muted);
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
-            max-width: 500px;
-        }
-        .choice-container {
-            width: 100%;
-            max-width: 450px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .btn {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 1.8rem;
-            border-radius: 20px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: 1px solid var(--border);
-        }
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-        .btn-privati {
-            background: var(--accent);
-            color: white;
-            border: none;
-        }
-        .btn-privati:hover {
-            background: #1d4ed8;
-        }
-        .btn-negozi {
-            background: rgba(255, 255, 255, 0.05);
-            color: white;
-        }
-        .btn-negozi:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--accent);
-        }
-        .btn-title {
-            font-size: 1.4rem;
-            font-weight: 800;
-            margin-bottom: 0.4rem;
-        }
-        .btn-desc {
-            font-size: 0.95rem;
-            opacity: 0.8;
-        }
-        .footer-info {
-            margin-top: 4rem;
-            color: var(--muted);
-            font-size: 0.9rem;
-        }
-        .provinces {
-            color: var(--accent);
-            font-weight: bold;
-            margin-top: 0.4rem;
-        }
+        body { font-family: 'Segoe UI', sans-serif; background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%); color: var(--white); min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; }
+        .logo { font-size: 3.5rem; font-weight: 900; letter-spacing: 5px; margin-bottom: 0.5rem; }
+        .tagline { color: var(--muted); margin-bottom: 3rem; max-width: 500px; line-height: 1.4; }
+        .choice-container { width: 100%; max-width: 450px; display: flex; flex-direction: column; gap: 15px; }
+        .btn { display: flex; flex-direction: column; align-items: center; padding: 1.5rem; border-radius: 15px; text-decoration: none; transition: all 0.3s ease; border: 1px solid var(--border); }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.4); border-color: var(--accent); }
+        .btn-blue { background: var(--accent); color: white; border: none; }
+        .btn-dark { background: rgba(255, 255, 255, 0.05); color: white; }
+        .btn-title { font-size: 1.2rem; font-weight: 800; margin-bottom: 0.3rem; }
+        .btn-desc { font-size: 0.9rem; opacity: 0.8; }
+        .footer-info { margin-top: 3rem; color: var(--muted); font-size: 0.85rem; }
     </style>
 </head>
 <body>
-
     <div class="logo">ORMA</div>
-    <p class="tagline">Soluzioni Tecniche Elettrodomestici.<br>Ripariamo, installiamo e risolviamo.</p>
-
+    <p class="tagline">Tecnici Risolutori Elettrodomestici.<br>La soluzione professionale ad ogni problema.</p>
     <div class="choice-container">
-        <!-- BOTTONE PRIVATI -->
-        <a href="privati.html" class="btn btn-privati">
-            <span class="btn-title">SEI UN PRIVATO?</span>
-            <span class="btn-desc">Riparazioni guasti e installazioni a domicilio</span>
-        </a>
-
-        <!-- BOTTONE NEGOZI -->
-        <a href="negozi.html" class="btn btn-negozi">
-            <span class="btn-title">SEI UN NEGOZIO?</span>
-            <span class="btn-desc">Partner per installazioni complesse e modifiche</span>
-        </a>
+        <a href="privati.html" class="btn btn-blue"><span class="btn-title">SEI UN PRIVATO?</span><span class="btn-desc">Riparazioni e installazioni a domicilio</span></a>
+        <a href="ricambi.html" class="btn btn-dark"><span class="btn-title">CERCHI RICAMBI?</span><span class="btn-desc">Ordina il pezzo e ricevilo a casa tua</span></a>
+        <a href="negozi.html" class="btn btn-dark"><span class="btn-title">SEI UN NEGOZIO?</span><span class="btn-desc">Partner per installazioni e modifiche</span></a>
     </div>
-
-    <div class="footer-info">
-        Operativi in tutta la provincia di:
-        <div class="provinces">NOVARA e VARESE</div>
-    </div>
-
+    <div class="footer-info">Operativi nelle province di <strong>NOVARA e VARESE</strong></div>
 </body>
 </html>
