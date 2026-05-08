@@ -108,7 +108,7 @@
       box-shadow: 0 6px 18px rgba(0,0,0,0.25);
     }
 
-    /* STEPS - miglioramento estetico /
+    /* STEPS - miglioramento estetico */
     .steps{
       display:grid;
       grid-template-columns:repeat(3,1fr);
@@ -137,3 +137,134 @@
       align-items:center;
       justify-content:center;
       font-weight:800;
+      font-size:0.95rem;
+      border:1px solid rgba(37,99,235,0.14);
+      flex-shrink:0;
+    }
+    .step-content h3{
+      margin:0 0 6px 0;
+      font-size:1rem;
+      color:var(--white);
+    }
+    .step-content p{ margin:0; color:var(--muted); line-height:1.45; font-size:0.95rem; }
+
+    /* CTA */
+    .cta{display:inline-block;background:var(--accent);color:#fff;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:700}
+    .muted{color:var(--muted)}
+    ul{margin-left:18px}
+
+    .form-list{display:grid;gap:10px}
+
+    footer{padding:28px 20px;color:var(--muted);text-align:center}
+    footer a { color: var(--accent); text-decoration: none; } /* link footer */
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      .steps{grid-template-columns:repeat(2,1fr)}
+      .nav-links{margin:0 auto} /* mantiene centratura anche su tablet */
+    }
+    @media(max-width:600px){
+      .steps{grid-template-columns:1fr}
+      nav{padding:10px 14px}
+      .nav-links{gap:10px;margin:0 auto}
+      h1{font-size:1.6rem}
+      /* Semplifica la navbar sui telefoni: nasconde i link, mostra solo logo e call */
+      .nav-links { display: none; }
+      .nav-cta { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-logo">
+      <span class="brand">ORMA</span>
+      <span class="brand-sub">— Centro Assistenza Tecnica</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="privati.html">Privati</a>
+      <a href="ricambi.html" class="active">Ricambi</a>
+      <a href="negozi.html">Negozi</a>
+    </div>
+    <a class="nav-cta" href="tel:+393391684009">Chiama ora</a>
+  </nav>
+
+  <div class="container">
+    <div class="section-label">Ricambi & Parti</div>
+    <h1>Hai bisogno di un ricambio? Te lo procuriamo e te lo spediamo.</h1>
+    <p class="lead">Se vuoi riparare da solo o ti serve solo il pezzo giusto, possiamo aiutarti: inviaci il codice del modello, foto del seriale/etichetta e una breve descrizione del pezzo da sostituire via WhatsApp. Ti rispondiamo e verifichiamo disponibilità, tempi e costo.</p>
+
+    <div class="card">
+      <h2>Come funziona (semplice)</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-badge">01</div>
+          <div class="step-content">
+            <h3>Contattaci</h3>
+            <p class="muted">Scrivici su WhatsApp o chiamaci. Invia foto dell'etichetta del prodotto (modello/serial) e una foto del pezzo da sostituire.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-badge">02</div>
+          <div class="step-content">
+            <h3>Identificazione</h3>
+            <p class="muted">Verifichiamo il codice e confermiamo il ricambio corretto (possibilità di suggerire alternative compatibili se necessario).</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-badge">03</div>
+          <div class="step-content">
+            <h3>Consegna</h3>
+            <p class="muted">Ti forniamo preventivo e tempi. Se accetti, organizziamo la spedizione diretta a casa tua. Modalità di pagamento da accordare in chat (bonifico, pagamento online futuro, ecc.).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Informazioni utili da inviarci</h2>
+      <div class="form-list">
+        <p class="muted">Per accelerare la ricerca del pezzo, manda in chat:</p>
+        <ul>
+          <li>Foto dell'etichetta con modello e serial (spesso sul lato o sul retro dell'elettrodomestico)</li>
+          <li>Foto del pezzo da sostituire (dettaglio e contesto)</li>
+          <li>Breve descrizione del problema e del componente che cerchi</li>
+          <li>Indirizzo di consegna e preferenze (orari)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>FAQ rapida</h2>
+      <ul>
+        <li><strong>Spedite i ricambi a domicilio?</strong> Sì, organizziamo la spedizione diretta al tuo indirizzo.</li>
+        <li><strong>Pagamenti?</strong> Accordati tramite chat: bonifico, pagamento anticipato o altra modalità da concordare. In futuro potremo integrare pagamenti online.</li>
+        <li><strong>Resi e compatibilità?</strong> Verifichiamo sempre codice e compatibilità; per resi o errori gestiremo insieme la soluzione.</li>
+        <li><strong>Tempi?</strong> Dipendono dalla disponibilità del fornitore; di solito 2–10 giorni lavorativi.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Vuoi procedere ora?</h2>
+      <p class="muted">Apri WhatsApp e invia le foto e il codice. Ti rispondiamo entro poche ore e ti guidiamo sul prossimo passo.</p>
+      <p style="margin-top:12px"><a class="cta" href="https://api.whatsapp.com/send?phone=393391684009">Scrivici su WhatsApp</a></p>
+    </div>
+
+    <div class="card">
+      <h2>Note per i negozi e i professionisti</h2>
+      <p class="muted">Se sei un negozio o un riparatore e vuoi approvvigionarti regolarmente, possiamo creare canali dedicati (listini, tempi di fornitura). Contattaci via WhatsApp per una trattativa B2B.</p>
+    </div>
+
+    <div style="margin-top:18px;color:var(--muted)">Operativi in provincia di Novara e Varese — Tel/WhatsApp: <strong>+39 3391684009</strong></div>
+  </div>
+
+  <footer>
+    <div style="max-width:1000px;margin:18px auto;padding:0 20px;color:var(--muted);font-size:0.95rem">
+      <p style="margin:0 0 6px 0;"><a href="index.html">← Torna alla Home</a> &nbsp;|&nbsp; <a href="privati.html">Privati</a> &nbsp;|&nbsp; <a href="negozi.html">Area Negozi & Partner</a></p>
+      <div>© 2026 ORMA — Tutti i diritti riservati</div>
+    </div>
+  </footer>
+</body>
+</html>
