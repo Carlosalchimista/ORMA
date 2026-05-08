@@ -34,7 +34,38 @@
             top: 0;
             z-index: 100;
         }
-        .nav-logo { font-weight: 900; color: var(--accent); letter-spacing: 2px; font-size: 1.2rem; }
+        .nav-logo{
+          display:flex;
+          align-items:baseline;
+          gap:8px;
+          font-weight:900;
+          letter-spacing:2px;
+          font-size:1.05rem;
+        }
+
+        /* ORMA in blu (accent) */
+        .nav-logo .brand{
+          color:var(--accent);
+          font-size:1.15rem;
+          line-height:1;
+        }
+
+        /* Descrizione in bianco, meno invasiva */
+        .nav-logo .brand-sub{
+          color:var(--white);
+          font-weight:600;
+          font-size:0.92rem;
+          opacity:0.95;
+          white-space:nowrap;
+        }
+
+        /* Mobile: riduci dimensione e mantieni ordine */
+        @media(max-width:420px){
+          .nav-logo{gap:6px}
+          .nav-logo .brand{font-size:1rem}
+          .nav-logo .brand-sub{font-size:0.82rem}
+        }
+
         .nav-links { display: flex; gap: 1.5rem; }
         .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.95rem; }
         .nav-links a:hover { color: var(--white); }
@@ -236,7 +267,10 @@
 
 <!-- NAVBAR -->
 <nav>
-    <div class="nav-logo">ORMA</div>
+    <div class="nav-logo">
+      <span class="brand">ORMA</span>
+      <span class="brand-sub">— Centro Assistenza Tecnica Elettrodomestici</span>
+    </div>
     <div class="nav-links">
         <a href="index.html">Home</a>
         <!-- Pagina corrente evidenziata -->
@@ -408,9 +442,9 @@
 
 <!-- FOOTER -->
 <footer>
-    <p><strong>ORMA</strong> — Centro Assistenza Tecnica Elettrodomestici</p>
-    <p style="margin-top:0.5rem;"><a href="index.html">← Torna alla Home</a> &nbsp;|&nbsp; <a href="negozi.html">Area Negozi & Partner</a></p>
-    <p style="margin-top:1rem;">© 2026 ORMA — <a href="#">Privacy Policy</a></p>
+    <p><strong><span style="color:var(--accent)">ORMA</span></strong> — Centro Assistenza Tecnica Elettrodomestici</p>
+    <p style="margin-top:0.5rem;"><a href="index.html">← Torna alla Home</a> &nbsp;|&nbsp; <a href="ricambi.html">Ricambi</a> &nbsp;|&nbsp; <a href="negozi.html">Area Negozi & Partner</a></p>
+    <p style="margin-top:1rem;color:var(--muted)">© 2026 ORMA — Tutti i diritti riservati</p>
 </footer>
 
 <!-- MOBILE BAR -->
