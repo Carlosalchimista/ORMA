@@ -32,7 +32,35 @@
             top: 0;
             z-index: 100;
         }
-        .nav-logo { font-weight: 900; color: var(--accent); letter-spacing: 2px; }
+
+        /* logo aggiornato: sigla + descrizione */
+        .nav-logo{
+          display:flex;
+          align-items:baseline;
+          gap:8px;
+          font-weight:900;
+          letter-spacing:2px;
+          font-size:1.05rem;
+          color: var(--accent);
+        }
+        .nav-logo .brand{
+          color:var(--accent);
+          font-size:1.15rem;
+          line-height:1;
+        }
+        .nav-logo .brand-sub{
+          color:var(--muted);
+          font-weight:700;
+          font-size:0.82rem;
+          opacity:0.95;
+          white-space:nowrap;
+        }
+        @media(max-width:420px){
+          .nav-logo{gap:6px}
+          .nav-logo .brand{font-size:1rem}
+          .nav-logo .brand-sub{font-size:0.72rem}
+        }
+
         .nav-links { display: flex; gap: 1.5rem; align-items: center; }
         .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.95rem; }
         .nav-links a:hover { color: var(--white); }
@@ -109,6 +137,7 @@
         }
 
         footer { text-align: center; padding: 3rem 2rem; color: var(--muted); border-top: 1px solid var(--border); }
+        footer a { color: var(--accent); text-decoration: none; }
 
         @media (max-width: 900px) {
             .value-grid { grid-template-columns: 1fr 1fr; }
@@ -126,7 +155,10 @@
 <body>
 
 <nav>
-    <div class="nav-logo">ORMA <span style="font-size:0.7rem;color:var(--muted);vertical-align:middle;">PARTNER</span></div>
+    <div class="nav-logo">
+      <span class="brand">ORMA</span>
+      <span class="brand-sub">— Divisione Tecnica</span>
+    </div>
     <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="privati.html">Privati</a>
@@ -192,6 +224,7 @@
 
 <footer>
     <p><strong>ORMA DIVISIONE TECNICA</strong><br>Sede operativa: [Province di Novara e Varese]</p>
+    <p style="margin-top: 1rem;"><a href="index.html">← Torna alla Home</a> &nbsp;|&nbsp; <a href="ricambi.html">Ricambi</a> &nbsp;|&nbsp; <a href="privati.html">Privati</a></p>
     <p style="margin-top: 1rem;">© 2026 ORMA — Tutti i diritti riservati</p>
 </footer>
 
