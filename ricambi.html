@@ -108,45 +108,38 @@
       box-shadow: 0 6px 18px rgba(0,0,0,0.25);
     }
 
-    /* STEPS - miglioramento estetico */
-    .steps{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:16px;
-      margin:18px 0;
-      align-items:start;
+    /* STEPS: stile compatto e numerazione grande (coerente con privati.html) */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 1.2rem;
+      align-items: start;
     }
-    .step{
-      background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
-      padding:18px;
-      border-radius:12px;
-      border:1px solid var(--border);
-      display:flex;
-      gap:12px;
-      align-items:flex-start;
-      transition: transform .18s ease, box-shadow .18s ease;
+    .step {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.6rem;
+      position: relative;
+      transition: transform .16s ease, box-shadow .16s ease;
     }
-    .step:hover{ transform: translateY(-6px); box-shadow: 0 10px 24px rgba(0,0,0,0.45); }
-    .step-badge{
-      min-width:48px;
-      height:48px;
-      border-radius:10px;
-      background:rgba(37,99,235,0.12);
-      color:var(--accent);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:800;
-      font-size:0.95rem;
-      border:1px solid rgba(37,99,235,0.14);
-      flex-shrink:0;
+    .step:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.45);
     }
-    .step-content h3{
-      margin:0 0 6px 0;
-      font-size:1rem;
-      color:var(--white);
+    .step-num {
+      font-size: 2.6rem;
+      font-weight: 900;
+      color: rgba(37,99,235,0.22);
+      line-height: 1;
+      margin-bottom: 0.6rem;
     }
-    .step-content p{ margin:0; color:var(--muted); line-height:1.45; font-size:0.95rem; }
+    .step h3 { font-size: 1.05rem; margin-bottom: 0.45rem; color: var(--white); }
+    .step p { color: var(--muted); font-size: 0.95rem; line-height: 1.45; margin:0; }
+
+    /* mantenere compatibilità: regole vecchie non più utilizzate (lascio per sicurezza) */
+    .step-badge, .step-content { display: none; }
 
     /* CTA */
     .cta{display:inline-block;background:var(--accent);color:#fff;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:700}
@@ -196,31 +189,29 @@
 
     <div class="card">
       <h2>Come funziona (semplice)</h2>
+
+      <!-- GRAFICA DEI PASSAGGI AGGIORNATA -->
       <div class="steps">
         <div class="step">
-          <div class="step-badge">01</div>
-          <div class="step-content">
-            <h3>Contattaci</h3>
-            <p class="muted">Scrivici su WhatsApp o chiamaci. Invia foto dell'etichetta del prodotto (modello/serial) e una foto del pezzo da sostituire.</p>
-          </div>
+          <div class="step-num">01</div>
+          <h3>Contattaci</h3>
+          <p>Scrivici su WhatsApp o chiamaci. Invia foto dell'etichetta del prodotto (modello/serial) e una foto del pezzo da sostituire.</p>
         </div>
 
         <div class="step">
-          <div class="step-badge">02</div>
-          <div class="step-content">
-            <h3>Identificazione</h3>
-            <p class="muted">Verifichiamo il codice e confermiamo il ricambio corretto (possibilità di suggerire alternative compatibili se necessario).</p>
-          </div>
+          <div class="step-num">02</div>
+          <h3>Identificazione</h3>
+          <p>Verifichiamo il codice e confermiamo il ricambio corretto (possibilità di suggerire alternative compatibili se necessario).</p>
         </div>
 
         <div class="step">
-          <div class="step-badge">03</div>
-          <div class="step-content">
-            <h3>Consegna</h3>
-            <p class="muted">Ti forniamo preventivo e tempi. Se accetti, organizziamo la spedizione diretta a casa tua. Modalità di pagamento da accordare in chat (bonifico, pagamento online futuro, ecc.).</p>
-          </div>
+          <div class="step-num">03</div>
+          <h3>Consegna</h3>
+          <p>Ti forniamo preventivo e tempi. Se accetti, organizziamo la spedizione diretta a casa tua. Modalità di pagamento da accordare in chat (bonifico, pagamento online futuro, ecc.).</p>
         </div>
       </div>
+      <!-- /GRAFICA DEI PASSAGGI AGGIORNATA -->
+
     </div>
 
     <div class="card">
@@ -257,7 +248,7 @@
       <p class="muted">Se sei un negozio o un riparatore e vuoi approvvigionarti regolarmente, possiamo creare canali dedicati (listini, tempi di fornitura). Contattaci via WhatsApp per una trattativa B2B.</p>
     </div>
 
-    
+    <div style="margin-top:18px;color:var(--muted)">Operativi in provincia di Novara e Varese — Tel/WhatsApp: <strong>+39 3391684009</strong></div>
   </div>
 
   <footer>
